@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optimización de Rutas</title>
     <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo CSS -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuFxFOQ90vIxgiNNHKjlXC--Qxwt-POKI&libraries=places"></script> <!-- Enlace a la API de Google Maps -->
+    <link rel="icon" href="ico/ico32.ico" sizes="32x32" type="image/ico32">
+    <link rel="icon" href="ico/ico16.ico" sizes="16x16" type="image/ico16">
+    <link rel="manifest" href="manifest.json"> <!-- Enlace al manifest -->
+    <meta name="theme-color" content="#4CAF50"> <!-- Color de la barra del navegador -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-_H-i3Gw8mTXKc2NnTl1gm1oyGs-R5Ms&libraries=places"></script> <!-- Enlace a la API de Google Maps -->
 </head>
 <body>
 
     <div id="mainDiv">
         <h1>Optimización de Rutas</h1>
+        
+        <input type="text" id="officeInput" placeholder="Ingresa la oficina de correos"> <!-- Nuevo input -->
+        
         <input type="text" id="addressInput" placeholder="Ingresa una dirección">
-
         <div id="suggestions"></div> <!-- Contenedor para sugerencias -->
 
         <button onclick="finalizeRoute()">Finalizar y Optimizar Ruta</button>
 
         <div id="result"></div> <!-- Para mostrar la ruta optimizada -->
-       
     </div>
 
     <script src="script.js"></script> <!-- Enlace al archivo JavaScript -->

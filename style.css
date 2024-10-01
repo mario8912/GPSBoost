@@ -70,8 +70,7 @@ button:hover {
     width: 100%; /* Tomar todo el ancho disponible */
 }
 
-#map {
-    margin-top: 20px;
-    width: 100%;
-    height: 400px;
+.optimized-route {
+    color: green; /* Cambia el color del texto a verde */
+    font-weight: bold; /* Opcional: haz el texto en negrita */
 }

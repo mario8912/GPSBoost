@@ -14,6 +14,19 @@ function initAutocomplete() {
             addAddress(place.formatted_address);
         }
     });
+
+    // Autocompletar para la oficina de correos
+    const officeAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("officeInput"),
+        { types: ["geocode"] }
+    );
+
+    officeAutocomplete.addListener("place_changed", () => {
+        const place = officeAutocomplete.getPlace();
+        if (place && place.formatted_address) {
+            document.getElementById('officeInput').value = place.formatted_address;
+        }
+    });
 }
 
 // Función para añadir direcciones
@@ -48,9 +61,8 @@ function updateAddressList() {
         suggestionsDiv.style.display = "none"; // Ocultar si no hay direcciones
     }
 
-    document.getElementById('addressInput').value = '';
+    document.getElementById('addressInput').value = ''; // Limpiar el input de dirección
 }
-
 
 // Función para calcular y mostrar la ruta
 function calculateAndDisplayRoute() {
@@ -62,11 +74,14 @@ function calculateAndDisplayRoute() {
         stopover: true
     }));
 
+    const origin = document.getElementById('officeInput').value; // Punto de partida
+    const destination = origin; // Destino es el mismo que el origen
+
     directionsService.route(
         {
-            origin: waypoints[0].location,
-            destination: waypoints[waypoints.length - 1].location,
-            waypoints: waypoints.slice(1, -1),
+            origin: origin,
+            destination: destination,
+            waypoints: waypoints,
             travelMode: google.maps.TravelMode.DRIVING,
         },
         (response, status) => {
@@ -81,23 +96,24 @@ function calculateAndDisplayRoute() {
 
 // Función para finalizar y abrir la ruta en Google Maps
 function finalizeRoute() {
-    console.log("Direcciones:", addresses);
     const optimizedRoute = addresses; // Suponiendo que aquí tendrás la ruta optimizada
 
     // Crear el enlace a Google Maps
-    const origin = optimizedRoute[0];
-    const destination = optimizedRoute[optimizedRoute.length - 1];
-    const waypoints = optimizedRoute.slice(1, -1).join("|");
+    const origin = document.getElementById('officeInput').value;
+    const destination = origin;
+    const waypoints = optimizedRoute.join("|");
 
     const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&waypoints=${encodeURIComponent(waypoints)}`;
 
     // Abrir el enlace en una nueva pestaña
     window.open(googleMapsUrl, '_blank');
 
-    // (Opcional) Mostrar la ruta optimizada en la página
+    // Mostrar la ruta optimizada en la página
     const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = "<h2>Ruta Optimizada:</h2><ul></ul>";
-    const list = resultDiv.querySelector("ol");
+    
+    resultDiv.innerHTML = "<h2><span class='optimized-route'>Ruta Optimizada:</span></h2><ul></ul>";
+
+    const list = resultDiv.querySelector("ul");
 
     optimizedRoute.forEach(address => {
         list.innerHTML += `<li>${address}</li>`;

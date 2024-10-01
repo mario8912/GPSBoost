@@ -1,0 +1,20 @@
+{
+    "name": "Optimización de Rutas",
+    "short_name": "Rutas Correos",
+    "start_url": "/GPSBoost/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+      {
+        "src": "ico/ico192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "ico/ico512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
