@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optimización de Rutas</title>
     <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo CSS -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuFxFOQ90vIxgiNNHKjlXC--Qxwt-POKI&libraries=places"></script> <!-- Enlace a la API de Google Maps -->
 </head>
 <body>
 
     <div id="mainDiv">
         <h1>Optimización de Rutas</h1>
         <input type="text" id="addressInput" placeholder="Ingresa una dirección">
-        <button onclick="addAddress()">Añadir Dirección</button>
 
-        <span>Lista de direcciones:</span>
-        <ul id="addressList">
-        </ul>
+        <div id="suggestions"></div> <!-- Contenedor para sugerencias -->
 
         <button onclick="finalizeRoute()">Finalizar y Optimizar Ruta</button>
 
-        </div>
+        <div id="result"></div> <!-- Para mostrar la ruta optimizada -->
+       
+    </div>
+
     <script src="script.js"></script> <!-- Enlace al archivo JavaScript -->
 </body>
 </html>
