@@ -97,7 +97,7 @@ function finalizeRoute() {
     // (Opcional) Mostrar la ruta optimizada en la página
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = "<h2>Ruta Optimizada:</h2><ul></ul>";
-    const list = resultDiv.querySelector("ul");
+    const list = resultDiv.querySelector("ol");
 
     optimizedRoute.forEach(address => {
         list.innerHTML += `<li>${address}</li>`;
