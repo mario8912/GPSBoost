@@ -1,0 +1,28 @@
+# Ignorar archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de entorno de desarrollo
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# Ignorar archivos temporales o de configuración de editores
+*.log
+*.tmp
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorar carpetas de caché
+.cache/
+dist/
+
+# Ignorar configuraciones de despliegue (opcional si usas servicios como Netlify, Vercel, etc.)
+netlify.toml
+vercel.json
+
+# Ignorar archivos de compilación (si decides usar herramientas como Webpack en el futuro)
+build/
