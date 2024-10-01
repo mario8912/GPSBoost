@@ -48,7 +48,7 @@ function updateAddressList() {
         suggestionsDiv.style.display = "none"; // Ocultar si no hay direcciones
     }
 
-    
+    document.getElementById('addressInput').value = '';
 }
 
 
