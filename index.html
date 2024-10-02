@@ -13,15 +13,19 @@
 </head>
 <body>
 
+    <h1 id="title">Optimización de Rutas</h1>
+
     <div id="mainDiv">
-        <h1>Optimización de Rutas</h1>
         
         <input type="text" id="officeInput" placeholder="Ingresa la oficina de correos"> <!-- Nuevo input -->
         
         <input type="text" id="addressInput" placeholder="Ingresa una dirección">
         <div id="suggestions"></div> <!-- Contenedor para sugerencias -->
 
-        <button onclick="finalizeRoute()">Finalizar y Optimizar Ruta</button>
+        <button id="finalizeRoute" onclick="finalizeRoute()">Finalizar y Optimizar Ruta</button>
+
+        <h3 id="correosOfficeLabel">Oficina de Correos: </h3>
+        <span id="correosOfficeSpan">Carrer Pere el Ceremonios, 4, 12560 Benicàssim, Castelló</span>
 
         <div id="result"></div> <!-- Para mostrar la ruta optimizada -->
     </div>

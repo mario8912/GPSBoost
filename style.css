@@ -17,37 +17,37 @@ body {
 }
 
 #mainDiv > * {
-    margin: 0.2pc;
+    margin: 0.3pc;
 }
 
-h1 {
-    color: #4CAF50; /* Título verde */
+h1, h3 {
+    color: #9755ce; /* Título verde */
 }
 
 input[type="text"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%; /* Tomar todo el ancho disponible */
+    width: 100%; 
 }
 
-button {
-    background-color: #4CAF50; /* Botón verde */
+#finalizeRoute {
+    background-color: #9755ce; 
     color: white;
     border: none;
     border-radius: 4px;
     padding: 10px 15px;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave para transformación y sombra */
 }
 
-button:hover {
-    background-color: #45a049; /* Botón verde más oscuro al pasar el mouse */
+#finalizeRoute:hover {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 4px rgb(0, 0, 0);
 }
 
 #suggestions {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    max-height: 150px;
+    max-height: 200px;
     overflow-y: auto;
     width: 100%;
     display: none; /* Ocultar inicialmente */
@@ -55,7 +55,7 @@ button:hover {
 
 .suggestion-item {
     padding: 8px;
-    cursor: pointer;
+    font-size: 12px;
 }
 
 .suggestion-item:hover {
@@ -63,6 +63,7 @@ button:hover {
 }
 
 #result {
+    display: none;
     margin-top: 20px;
     background-color: #e8f5e9; /* Fondo verde claro */
     padding: 10px;
@@ -70,7 +71,6 @@ button:hover {
     width: 100%; /* Tomar todo el ancho disponible */
 }
 
-.optimized-route {
-    color: green; /* Cambia el color del texto a verde */
-    font-weight: bold; /* Opcional: haz el texto en negrita */
+#correosOfficeLabel {
+    align-self: flex-start;
 }

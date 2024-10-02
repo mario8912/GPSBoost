@@ -4,7 +4,7 @@
     "start_url": "/GPSBoost/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#4CAF50",
+    "theme_color": "#9755ce",
     "icons": [
       {
         "src": "ico/ico192.png",
