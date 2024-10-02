@@ -132,32 +132,47 @@ function calculateAndDisplayRoute() {
 
 // Función para finalizar y abrir la ruta en Google Maps
 function finalizeRoute() {
-    const optimizedRoute = addresses; // Suponiendo que aquí tendrás la ruta optimizada
 
-    // Crear el enlace a Google Maps
-    const origin = document.getElementById('officeInput').value;
-    const destination = origin;
-    const waypoints = optimizedRoute.join("|");
+    if (addresses.length < 1) {
+        alert("Debes añadir direcciones a la lista")
+    } else  {
+        const optimizedRoute = addresses; // Suponiendo que aquí tendrás la ruta optimizada
 
-    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&waypoints=${encodeURIComponent(waypoints)}`;
+        // Crear el enlace a Google Maps
+        const origin = document.getElementById('officeInput').value;
+        const destination = origin;
+        const waypoints = optimizedRoute.join("|");
 
-    // Abrir el enlace en una nueva pestaña
-    window.open(googleMapsUrl, '_blank');
+        const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&waypoints=${encodeURIComponent(waypoints)}`;
 
-    // Mostrar la ruta optimizada en la página
-    const resultDiv = document.getElementById("result");
-    resultDiv.style.display = "block"
-    resultDiv.innerHTML = "<h3><span class='optimized-route'>Ruta Optimizada:</span></h3><ul></ul>";
+        // Abrir el enlace en una nueva pestaña
+        
+        //window.open(googleMapsUrl, '_blank');
 
-    const list = resultDiv.querySelector("ul");
+        // Mostrar la ruta optimizada en la página
+        const resultDiv = document.getElementById("result");
+        resultDiv.style.display = "block"
+        resultDiv.innerHTML = "<h3><span class='optimized-route'>Ruta Optimizada:</span></h3><ul></ul>";
 
-    optimizedRoute.forEach(address => {
-        list.innerHTML += `<li>${address}</li>`;
-    });
+        const list = resultDiv.querySelector("ul");
 
-    // Calcular y mostrar la ruta en el mapa
-    calculateAndDisplayRoute();
-}
+        optimizedRoute.forEach(address => {
+            list.innerHTML += `<li>${address}</li>`;
+        });
+
+        // Calcular y mostrar la ruta en el mapa
+        calculateAndDisplayRoute();
+        
+        let link = document.createElement('a')
+        link.href = googleMapsUrl
+        link.target = "_blank"
+        link.innerText = "Ver ruta en Google Maps"
+        link.style.display = "block"
+
+        document.getElementById("result").insertAdjacentElement('afterend',link)
+
+        }
+    }
 
 // Llamar a la función al cargar la página
 window.onload = () => {
